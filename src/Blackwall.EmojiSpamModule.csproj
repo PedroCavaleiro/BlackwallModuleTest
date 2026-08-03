@@ -9,13 +9,9 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="../../src/Blackwall.Modules.Abstractions/Blackwall.Modules.Abstractions.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
-        <None Update="blackwall-module.json">
-            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-        </None>
+        <Reference Include="Blackwall.Modules.Abstractions">
+            <HintPath>Blackwall.Modules.Abstractions.dll</HintPath>
+        </Reference>
     </ItemGroup>
 
 </Project>
