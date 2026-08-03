@@ -1,0 +1,62 @@
+{
+  "name": "emoji-spam",
+  "version": "1.0.0",
+  "author": "Blackwall Example",
+  "description": "Detects messages with excessive emoji and optionally performs infraction actions.",
+  "entryPoint": "Blackwall.EmojiSpamModule.dll",
+  "canPerformActions": true,
+  "settingsSchema": {
+    "cards": [
+      {
+        "title": "Detection Threshold",
+        "description": "Configure how many emoji trigger a violation and what counts as an emoji.",
+        "fields": [
+          {
+            "key": "maxEmojiCount",
+            "uiName": "Max Emoji Per Message",
+            "helpText": "Messages with more than this many emoji will be flagged.",
+            "inputType": "Number",
+            "defaultValue": "5"
+          },
+          {
+            "key": "countCustomEmoji",
+            "uiName": "Count Custom Emoji",
+            "helpText": "When enabled, custom server emoji (<:name:id>) are also counted.",
+            "inputType": "Dropdown",
+            "defaultValue": "true",
+            "options": [
+              { "text": "Yes", "value": "true" },
+              { "text": "No", "value": "false" }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Module Actions",
+        "description": "This module can perform infraction actions when violations are detected.",
+        "fields": [
+          {
+            "key": "action",
+            "uiName": "Infraction Action",
+            "helpText": "The action taken when excessive emoji is detected.",
+            "inputType": "Dropdown",
+            "defaultValue": "DeleteOnly",
+            "options": [
+              { "text": "Delete Only", "value": "DeleteOnly" },
+              { "text": "Timeout", "value": "Timeout" },
+              { "text": "Kick", "value": "Kick" },
+              { "text": "Ban", "value": "Ban" }
+            ]
+          },
+          {
+            "key": "timeoutMinutes",
+            "uiName": "Timeout Duration (minutes)",
+            "helpText": "Used when action is Timeout.",
+            "inputType": "Number",
+            "defaultValue": "5"
+          }
+        ]
+      }
+    ]
+  }
+}
