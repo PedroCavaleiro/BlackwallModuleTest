@@ -15,14 +15,14 @@
             "key": "maxEmojiCount",
             "uiName": "Max Emoji Per Message",
             "helpText": "Messages with more than this many emoji will be flagged.",
-            "inputType": "Number",
+            "inputType": "number",
             "defaultValue": "5"
           },
           {
             "key": "countCustomEmoji",
             "uiName": "Count Custom Emoji",
             "helpText": "When enabled, custom server emoji (<:name:id>) are also counted.",
-            "inputType": "Dropdown",
+            "inputType": "dropdown",
             "defaultValue": "true",
             "options": [
               { "text": "Yes", "value": "true" },
@@ -39,7 +39,7 @@
             "key": "action",
             "uiName": "Infraction Action",
             "helpText": "The action taken when excessive emoji is detected.",
-            "inputType": "Dropdown",
+            "inputType": "dropdown",
             "defaultValue": "DeleteOnly",
             "options": [
               { "text": "Delete Only", "value": "DeleteOnly" },
@@ -52,7 +52,7 @@
             "key": "timeoutMinutes",
             "uiName": "Timeout Duration (minutes)",
             "helpText": "Used when action is Timeout.",
-            "inputType": "Number",
+            "inputType": "number",
             "defaultValue": "5"
           }
         ]
