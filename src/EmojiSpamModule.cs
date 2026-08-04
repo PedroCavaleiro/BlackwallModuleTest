@@ -13,6 +13,8 @@ public sealed partial class EmojiSpamModule : IBlackwallModule
     private bool _countCustomEmoji = true;
     private ModuleAction _action = ModuleAction.DeleteOnly;
     private int _timeoutMinutes = 5;
+    private int _messageDeleteDays = 0;
+    private bool _autoLockdown = false;
 
     public string Name => "emoji-spam";
     public string Version => "1.0.0";
@@ -21,9 +23,12 @@ public sealed partial class EmojiSpamModule : IBlackwallModule
     {
         _maxEmojiCount = settings.GetInt32("maxEmojiCount") ?? 5;
         _countCustomEmoji = settings.GetBoolean("countCustomEmoji") ?? true;
-        _timeoutMinutes = settings.GetInt32("timeoutMinutes") ?? 5;
+        _timeoutMinutes = settings.GetInt32("__timeoutMinutes") ?? 5;
+        _messageDeleteDays = settings.GetInt32("__messageDeleteDays") ?? 0;
+        _autoLockdown = settings.GetBoolean("__autoLockdown") ?? false;
 
-        if (Enum.TryParse<ModuleAction>(settings.Get("action"), out var action))
+        var actionStr = settings.Get("__action");
+        if (!string.IsNullOrEmpty(actionStr) && Enum.TryParse<ModuleAction>(actionStr, true, out var action))
             _action = action;
 
         return Task.CompletedTask;
@@ -45,8 +50,8 @@ public sealed partial class EmojiSpamModule : IBlackwallModule
                 ViolationType: "emoji-spam",
                 Action: _action,
                 TimeoutMinutes: _timeoutMinutes,
-                DeleteDays: 0,
-                AutoLockdown: false,
+                DeleteDays: _messageDeleteDays,
+                AutoLockdown: _autoLockdown,
                 Reason: $"Message contains {count} emoji (limit: {_maxEmojiCount})"
             ));
         }
