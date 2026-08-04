@@ -31,32 +31,6 @@
             ]
           }
         ]
-      },
-      {
-        "title": "Module Actions",
-        "description": "This module can perform infraction actions when violations are detected.",
-        "fields": [
-          {
-            "key": "action",
-            "uiName": "Infraction Action",
-            "helpText": "The action taken when excessive emoji is detected.",
-            "inputType": "dropdown",
-            "defaultValue": "DeleteOnly",
-            "options": [
-              { "text": "Delete Only", "value": "DeleteOnly" },
-              { "text": "Timeout", "value": "Timeout" },
-              { "text": "Kick", "value": "Kick" },
-              { "text": "Ban", "value": "Ban" }
-            ]
-          },
-          {
-            "key": "timeoutMinutes",
-            "uiName": "Timeout Duration (minutes)",
-            "helpText": "Used when action is Timeout.",
-            "inputType": "number",
-            "defaultValue": "5"
-          }
-        ]
       }
     ]
   }
