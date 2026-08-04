@@ -62,7 +62,7 @@ public sealed partial class EmojiSpamModule : IBlackwallModule
     public Task UpdateSettingsAsync(ModuleSettings settings, CancellationToken ct)
         => InitializeAsync(settings, ct);
 
-    [GeneratedRegex(@"[\u1F000-\u1FAFF\u2600-\u27BF\uFE0F]", RegexOptions.CultureInvariant)]
+    [GeneratedRegex(@"(?:\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|\uD83E[\uDC00-\uDEFF])|[\u2600-\u27BF\uFE0F]", RegexOptions.CultureInvariant)]
     private static partial Regex CreateUnicodeEmojiRegex();
 
     [GeneratedRegex(@"<a?:\w+:\d+>", RegexOptions.CultureInvariant)]
