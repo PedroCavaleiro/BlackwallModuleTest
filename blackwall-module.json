@@ -1,5 +1,6 @@
 {
   "name": "emoji-spam",
+  "readableName": "Emoji Spam",
   "version": "1.0.0",
   "author": "Blackwall Example",
   "description": "Detects messages with excessive emoji and optionally performs infraction actions.",
