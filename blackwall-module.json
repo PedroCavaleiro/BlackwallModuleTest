@@ -6,6 +6,7 @@
   "description": "Detects messages with excessive emoji and optionally performs infraction actions.",
   "entryPoint": "Blackwall.EmojiSpamModule.dll",
   "canPerformActions": true,
+  "platforms": ["discord", "twitch"],
   "settingsSchema": {
     "cards": [
       {
